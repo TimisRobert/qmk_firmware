@@ -1,4 +1,4 @@
-/* Copyright 2022 splitkb.com <support@splitkb.com>
+/* Copyright 2022 Thomas Baart <thomas@splitkb.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,25 +16,24 @@
 
 #pragma once
 
-// `SPLIT_HAND_PIN` can currently be defined in `info.json`,
-// but can't yet be given a value
-#define SPLIT_HAND_PIN F4
+#define OLED_BRIGHTNESS 100
 
-// Not yet available in `info.json`
-#ifdef OLED_ENABLE
-
-#define OLED_DISPLAY_128X32
-#define SPLIT_OLED_ENABLE
-#define OLED_BRIGHTNESS 128
-
+#ifdef RGBLIGHT_ENABLE
+#    define RGBLIGHT_EFFECT_BREATHING
+#    define RGBLIGHT_EFFECT_RAINBOW_MOOD
+#    define RGBLIGHT_EFFECT_RAINBOW_SWIRL
+#    define RGBLIGHT_EFFECT_SNAKE
+#    define RGBLIGHT_EFFECT_KNIGHT
+#    define RGBLIGHT_EFFECT_CHRISTMAS
+#    define RGBLIGHT_EFFECT_STATIC_GRADIENT
+#    define RGBLIGHT_EFFECT_RGB_TEST
+#    define RGBLIGHT_EFFECT_ALTERNATING
+#    define RGBLIGHT_EFFECT_TWINKLE
+#    define RGBLIGHT_HUE_STEP 8
+#    define RGBLIGHT_SAT_STEP 8
+#    define RGBLIGHT_VAL_STEP 8
+#    ifndef RGBLIGHT_LIMIT_VAL
+#    	define RGBLIGHT_LIMIT_VAL 150
+#    endif
 #endif
 
-// Not yet available in `info.json`
-#ifdef RGB_MATRIX_ENABLE
-
-#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 128
-#define RGB_MATRIX_LED_COUNT 54
-#define RGB_MATRIX_SPLIT { 27, 27 }
-#define SPLIT_TRANSPORT_MIRROR
-
-#endif
